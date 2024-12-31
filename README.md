@@ -18,8 +18,23 @@ Using [lazy.nvim](https://github.com/folke/lazy.nvim):
 ```lua
 {
     'elliotxx/copypath.nvim',
+    opts = {
+        -- Default options
+        default_mappings = true,  -- Set to false to disable default mappings
+        mapping = 'Y',            -- Default mapping to trigger copy
+        notify = true,            -- Show notification when path is copied
+    }
+}
+```
+
+You can also use the traditional setup way:
+```lua
+{
+    'elliotxx/copypath.nvim',
     config = function()
-        require('copypath').setup()
+        require('copypath').setup({
+            -- Your custom config here
+        })
     end
 }
 ```
@@ -30,7 +45,9 @@ Using [packer.nvim](https://github.com/wbthomason/packer.nvim):
 use {
     'elliotxx/copypath.nvim',
     config = function()
-        require('copypath').setup()
+        require('copypath').setup({
+            -- Your custom config here
+        })
     end
 }
 ```

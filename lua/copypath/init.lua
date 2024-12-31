@@ -111,4 +111,7 @@ function M.setup(opts)
     end
 end
 
+-- Support for lazy.nvim's opts
+M.init = M.setup
+
 return M
