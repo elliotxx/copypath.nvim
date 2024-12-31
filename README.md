@@ -1,3 +1,5 @@
+![copypath.nvim](https://socialify.git.ci/elliotxx/copypath.nvim/image?font=Raleway&language=1&name=1&owner=1&pattern=Plus&theme=Light)
+
 # copypath.nvim
 
 A Neovim plugin that provides enhanced path copying functionality, supporting both local paths and repository URLs.
