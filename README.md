@@ -4,6 +4,11 @@
 
 A Neovim plugin that provides enhanced path copying functionality, supporting both local paths and repository URLs.
 
+![image](https://github.com/user-attachments/assets/7e038360-90b8-4a91-884e-6515d23dc88f)
+
+![image](https://github.com/user-attachments/assets/7d23474e-b07c-49fc-b888-fc70d18c3bc7)
+
+
 ## Features
 
 - Copy file path with line number
