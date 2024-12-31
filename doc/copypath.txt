@@ -1,0 +1,83 @@
+*copypath.txt*  Enhanced path copying for Neovim
+
+==============================================================================
+CONTENTS                                                      *copypath-contents*
+
+    1. Introduction ................. |copypath-introduction|
+    2. Requirements ................. |copypath-requirements|
+    3. Setup ....................... |copypath-setup|
+    4. Configuration ............... |copypath-configuration|
+    5. Usage ....................... |copypath-usage|
+    6. Commands .................... |copypath-commands|
+    7. Mappings .................... |copypath-mappings|
+
+==============================================================================
+1. INTRODUCTION                                          *copypath-introduction*
+
+copypath.nvim is a Neovim plugin that provides enhanced path copying 
+functionality, supporting both local paths and repository URLs.
+
+==============================================================================
+2. REQUIREMENTS                                        *copypath-requirements*
+
+- Neovim >= 0.5.0
+- Git (for repository URL features)
+- System clipboard support
+
+==============================================================================
+3. SETUP                                                      *copypath-setup*
+
+You can setup the plugin using your favorite plugin manager:
+
+Using lazy.nvim: >
+    {
+        'elliotxx/copypath.nvim',
+        config = function()
+            require('copypath').setup()
+        end
+    }
+<
+
+==============================================================================
+4. CONFIGURATION                                      *copypath-configuration*
+
+Default configuration: >
+    require('copypath').setup({
+        default_mappings = true,  -- Set to false to disable default mappings
+        mapping = 'Y',            -- Default mapping to trigger copy
+        notify = true,            -- Show notification when path is copied
+    })
+<
+
+==============================================================================
+5. USAGE                                                      *copypath-usage*
+
+By default, pressing `Y` in normal mode will:
+- If in a git repository:
+  * Copy the web URL (e.g., https://github.com/user/repo/blob/main/file.lua#L42)
+  * Supports various Git platforms (GitHub, GitLab, etc.)
+- If not in a git repository:
+  * Copy the relative path with line number (e.g., src/file.lua:42)
+  * Falls back to absolute path if relative path is not available
+
+==============================================================================
+6. COMMANDS                                                *copypath-commands*
+
+Currently there are no commands provided by the plugin. All functionality is
+accessed through mappings.
+
+==============================================================================
+7. MAPPINGS                                                *copypath-mappings*
+
+Default mapping:
+    Y       Copy file path with line number
+
+You can disable default mappings by setting `default_mappings = false` in the
+setup configuration and define your own mappings:
+
+Example: >
+    vim.keymap.set('n', '<leader>Y', require('copypath').copy_path_with_line)
+<
+
+==============================================================================
+vim:ft=help:tw=78:ts=8:noet:fen:fdl=0:fdm=marker:
