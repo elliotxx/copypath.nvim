@@ -4,6 +4,8 @@
 
 A Neovim plugin that provides enhanced path copying functionality, supporting both local paths and repository URLs.
 
+https://github.com/user-attachments/assets/9992cc69-28ca-49a2-9586-cdc3eb6c73cd
+
 ![image](https://github.com/user-attachments/assets/7e038360-90b8-4a91-884e-6515d23dc88f)
 
 ![image](https://github.com/user-attachments/assets/7d23474e-b07c-49fc-b888-fc70d18c3bc7)
