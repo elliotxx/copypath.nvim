@@ -6,9 +6,7 @@ A Neovim plugin that provides enhanced path copying functionality, supporting bo
 
 https://github.com/user-attachments/assets/9992cc69-28ca-49a2-9586-cdc3eb6c73cd
 
-![image](https://github.com/user-attachments/assets/7e038360-90b8-4a91-884e-6515d23dc88f)
 
-![image](https://github.com/user-attachments/assets/7d23474e-b07c-49fc-b888-fc70d18c3bc7)
 
 
 ## Features
@@ -16,7 +14,9 @@ https://github.com/user-attachments/assets/9992cc69-28ca-49a2-9586-cdc3eb6c73cd
 - Copy file path with line number
 - Automatically detects if file is in a git repository
 - Converts repository paths to web URLs (supports GitHub, GitLab, and other git platforms)
+  ![image](https://github.com/user-attachments/assets/7e038360-90b8-4a91-884e-6515d23dc88f)
 - Falls back to relative/absolute paths when not in a git repository
+  ![image](https://github.com/user-attachments/assets/7d23474e-b07c-49fc-b888-fc70d18c3bc7)
 
 ## Installation
 
