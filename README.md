@@ -2,21 +2,26 @@
 
 # copypath.nvim
 
-A Neovim plugin that provides enhanced path copying functionality, supporting both local paths and repository URLs.
+A Neovim plugin that solves a common developer pain point: how to quickly share code locations with colleagues?
 
 https://github.com/user-attachments/assets/9992cc69-28ca-49a2-9586-cdc3eb6c73cd
 
-
-
-
 ## Features
 
-- Copy file path with line number
-- Automatically detects if file is in a git repository
-- Converts repository paths to web URLs (supports GitHub, GitLab, and other git platforms)
+- Copy GitHub/GitLab URLs with line numbers when in a Git repo
+  ```
+  https://github.com/user/repo/blob/main/file.lua#L42
+  ```
   ![image](https://github.com/user-attachments/assets/7e038360-90b8-4a91-884e-6515d23dc88f)
-- Falls back to relative/absolute paths when not in a git repository
+- Fallback to relative path + line number outside Git repos
+  ```
+  src/file.lua:42
+  ```
   ![image](https://github.com/user-attachments/assets/7d23474e-b07c-49fc-b888-fc70d18c3bc7)
+- Automatic SSH/HTTPS URL conversion
+  ```
+  git@host:org/repo => https://host/org/repo
+  ```
 
 ## Installation
 
@@ -32,18 +37,9 @@ Using [lazy.nvim](https://github.com/folke/lazy.nvim):
         notify = true,            -- Show notification when path is copied
     }
 }
-```
 
-You can also use the traditional setup way:
-```lua
-{
-    'elliotxx/copypath.nvim',
-    config = function()
-        require('copypath').setup({
-            -- Your custom config here
-        })
-    end
-}
+-- or with minimal config
+{ 'elliotxx/copypath.nvim' }
 ```
 
 Using [packer.nvim](https://github.com/wbthomason/packer.nvim):
