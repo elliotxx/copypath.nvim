@@ -28,17 +28,6 @@ https://github.com/user-attachments/assets/9992cc69-28ca-49a2-9586-cdc3eb6c73cd
 Using [lazy.nvim](https://github.com/folke/lazy.nvim):
 
 ```lua
-{
-    'elliotxx/copypath.nvim',
-    opts = {
-        -- Default options
-        default_mappings = true,  -- Set to false to disable default mappings
-        mapping = 'Y',            -- Default mapping to trigger copy
-        notify = true,            -- Show notification when path is copied
-    }
-}
-
--- or with minimal config
 { 'elliotxx/copypath.nvim' }
 ```
 
