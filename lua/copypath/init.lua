@@ -29,7 +29,7 @@ local function convert_git_url(url)
     return nil
 end
 
--- Get repository URL for current file
+-- Get repository URL with current branch for current file
 -- @return string|nil: The full repository URL for the current file, nil if not in a git repo
 local function get_repo_url()
     -- Get git root directory
@@ -54,15 +54,17 @@ local function get_repo_url()
         return nil
     end
 
-    -- Get default branch (usually main or master)
-    local default_branch = vim.fn.system('git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null'):gsub('\n', '')
-    default_branch = default_branch:gsub('refs/remotes/origin/', '')
-    if default_branch == '' then
-        default_branch = 'main'  -- fallback to main
+    -- Get current branch or commit SHA
+    -- First try to get branch name
+    local current_ref = vim.fn.system('git symbolic-ref --short HEAD 2>/dev/null'):gsub('\n', '')
+
+    if current_ref == '' then
+        -- detached HEAD (e.g., on a tag or specific commit), use commit SHA
+        current_ref = vim.fn.system('git rev-parse --short HEAD 2>/dev/null'):gsub('\n', '')
     end
 
     -- Construct repository URL
-    return string.format('%s/blob/%s/%s', https_url, default_branch, relative_path)
+    return string.format('%s/blob/%s/%s', https_url, current_ref, relative_path)
 end
 
 -- Copy current file path with line number
